@@ -1,4 +1,5 @@
 library(dplyr)
+library(plotly)
 
 both_sexes <- read.csv("~/Desktop/info498/Info-final-project/data/both_sexes.csv")
 divorce <- read.csv("~/Desktop/info498/Info-final-project/data/divorce.csv")
@@ -16,7 +17,6 @@ round_col <- function(df, digits) {
 
 men2534 <- round_col(men2534, 2)
 women2534 <- round_col(women2534, 2)
-divorce2534 <- round_col(divorce2534, 2)
 
 # what are some factors of long lasting marriage?
 # compare divorce rate with education level, economic level
