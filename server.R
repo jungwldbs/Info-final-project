@@ -1,4 +1,5 @@
 library(shiny)
+library(plotly)
 source("scripts/divorce_vs_Age.R")
 source("scripts/divorce-education.R")
 source("scripts/regional_married.R")
@@ -16,5 +17,3 @@ shinyServer(function(input, output) {
     married_state_map(input$interest_year)
   })
 })
-
-

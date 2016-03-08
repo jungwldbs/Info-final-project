@@ -1,8 +1,8 @@
 library(shiny)
+library(plotly)
 shinyUI(navbarPage("Info",
                    tabPanel("linegraph",
                             titlePanel("Age vs Divorce"),
-  
                             sidebarPanel(
                               radioButtons("age", label = h4("Choose an Age Group"),
                                            choices = list("35-44" = "all_3544", "45-54" = "all_4554"),
