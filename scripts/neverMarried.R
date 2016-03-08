@@ -3,9 +3,6 @@ library(plotly)
 
 both_sexes <- read.csv("data/both_sexes.csv", stringsAsFactors = FALSE)
 
-# divorce -> percentage of currently divorced
-# marriage data -> percentage of people never been married
-
 Marriage2534 <- select(both_sexes, year, ends_with("2534")) 
 
 round_col <- function(df, digits) {
