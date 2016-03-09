@@ -12,8 +12,10 @@ shinyUI(fluidPage(
   ),
   # Render plot
   mainPanel(
-    plotlyOutput("age_vs_divorce"),
-    plotlyOutput("education"),
-    plotlyOutput("never_married")
+    tabsetPanel(
+      tabPanel("linegraph", plotlyOutput("age_vs_divorce")),
+      tabPanel("PieChart", plotlyOutput("education")),
+      tabPanel("map", plotlyOutput("never_married"))
+    )
   )
 ))

@@ -36,11 +36,11 @@ never_married_state_map <- function() {
   Marriage2534 <- mutate(Marriage2534, code = c(ne, ma, mwest, s, mt, pacific)) %>%
     as.data.frame()
   
-  data <- Marriage2534 %>% select(Region, `1960`, code)
+  data <- Marriage2534 %>% select(Region, `2012`, code)
   
   # create sets of hovering texts on map                    
   data$hover <- with(data, paste(Region, '<br>', 
-                                 'Never married:', `1960`, '%'))
+                                 'Never married:', `2012`, '%'))
   
   
   # marker styling, set its size, opacity and shape
@@ -58,10 +58,10 @@ never_married_state_map <- function() {
     # subunitwidth = 0.8
   )
   
-  plot_ly(data, z = `1960`, locations = code, color = `1960`, 
+  plot_ly(data, z = `2012`, locations = code, color = `2012`, 
           colors = 'Purples', type = 'choropleth', locationmode = 'USA-states', 
           marker = list(line = l), text = hover) %>%
-    layout(title = '1960 never married', geo = g) %>%
+    layout(title = '2012 never married', geo = g) %>%
     return()
   
 }
