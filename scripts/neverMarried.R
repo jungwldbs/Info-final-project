@@ -16,6 +16,8 @@ never_married_state_map <- function() {
   colnames(Marriage2534) = Marriage2534[1, ]
   Marriage2534 = Marriage2534[-1, ]
   
+  row.names(Marriage2534) <- c("New England", "Mid-Atlantic", "Midwest", 
+                               "South", "Mountain", "Pacific")
   
   Marriage2534 <- as.data.frame(Marriage2534)
   Marriage2534 <- add_rownames(Marriage2534, "Region")
