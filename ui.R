@@ -13,6 +13,7 @@ shinyUI(fluidPage(
   # Render plot
   mainPanel(
     plotlyOutput("age_vs_divorce"),
-    plotlyOutput("education")
+    plotlyOutput("education"),
+    plotlyOutput("never_married")
   )
 ))
