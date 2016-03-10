@@ -25,7 +25,7 @@ shinyUI(navbarPage("Info",
                    ),
                    
                    tabPanel("map",
-                            titlePanel("never married regional data"),
+                            titlePanel("Percentage of people married regional data"),
                             sidebarPanel(
                               selectInput("interest_year", label = h3("Select year"),
                                           choices = list("1960", "1970", "1980", "1990", 
@@ -33,7 +33,7 @@ shinyUI(navbarPage("Info",
                                           selected = "1960")
                             ),
                             mainPanel(
-                              plotlyOutput("never_married")
+                              plotlyOutput("married")
                             )
                    )
   
