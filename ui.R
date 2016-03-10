@@ -12,13 +12,10 @@ shinyUI(navbarPage("Menu",
                                            choices = list("25-34" = "all_2534",
                                                           "35-44" = "all_3544", 
                                                           "45-54" = "all_4554"),
-                                           selected = "all_2534")
+                                           selected = "all_2534"),
+                              includeMarkdown("detail/explain_gender.md")
                             ),
-                            tabPanel("", 
-                                     fluidRow(
-                                       column(4, includeMarkdown("detail/explain_gender.md"))
-                                     )
-                            ),
+                            
                             mainPanel(
                               plotlyOutput("male_vs_female")
                             )
@@ -30,10 +27,8 @@ shinyUI(navbarPage("Menu",
                               selectInput("interest_year", label = h3("Select year"),
                                           choices = list("1960", "1970", "1980", "1990", 
                                                          "2000", "2010", "2012"),
-                                          selected = "1960")
-                            ),
-                            fluidRow(
-                              column(4, includeMarkdown("detail/explain_map.md"))
+                                          selected = "1960"),
+                              includeMarkdown("detail/explain_map.md")
                             ),
                             mainPanel(
                               plotlyOutput("married")
@@ -64,10 +59,8 @@ shinyUI(navbarPage("Menu",
                             sidebarPanel(
                               radioButtons("age", label = h4("Choose an Age Group"),
                                            choices = list("35-44" = "all_3544", "45-54" = "all_4554"),
-                                           selected = "all_3544")
-                            ),
-                            fluidRow(
-                              column(4, includeMarkdown("detail/explain_age_divorce.md"))
+                                           selected = "all_3544"),
+                              includeMarkdown("detail/explain_age_divorce.md")
                             ),
                             mainPanel(
                               plotlyOutput("age_vs_divorce")
