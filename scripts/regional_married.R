@@ -1,12 +1,19 @@
 library(dplyr)
 library(plotly)
 
+# Create function that returns choropleth map representation of data set 
+# data changed based on uesr input year
 married_state_map <- function(interest_year) {
+  
+  # read in data set
   both_sexes <- read.csv("data/both_sexes.csv", stringsAsFactors = FALSE)
+  
+  # summarise data set necessary for drawing map
+  # use function married data to change data
   source("scripts/married_data.R")
-
   Marriage2534 <- married_data(both_sexes)
   
+  # create data of selected user input year 
   data <- Marriage2534 %>% select(Region, contains(interest_year), code)
   
   # create sets of hovering texts on map                    
@@ -15,7 +22,7 @@ married_state_map <- function(interest_year) {
                                  , '%'))
   
   
-  # marker styling, set its size, opacity and shape
+  # give state boundaries a gray border
   l <- list(color = toRGB("gray75"), width = 0.5)
   
   # geo styling, get usa map and set colors of lands and its borderlines
@@ -24,12 +31,11 @@ married_state_map <- function(interest_year) {
     projection = list(type = 'albers usa'),
     showlakes = TRUE,
     lakecolor = toRGB('gray75'),
-    # subunitcolor = toRGB("gray50"),
     countrycolor = toRGB("gray90"),
     countrywidth = 0.5
-    # subunitwidth = 0.8
   )
   
+  # create and returns plot choropleth map
   plot_ly(data, z = eval(parse(text = paste0('`', interest_year, '`'))), 
           locations = code, color = eval(parse(text = paste0('`', interest_year, '`'))), 
           colors = 'Blues', type = 'choropleth', locationmode = 'USA-states', 
