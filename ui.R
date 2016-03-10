@@ -8,6 +8,11 @@ shinyUI(navbarPage("Info",
                                            choices = list("35-44" = "all_3544", "45-54" = "all_4554"),
                                            selected = "all_3544")
                             ),
+                            tabPanel("", 
+                                     fluidRow(
+                                       column(4, includeMarkdown("detail/explain_age_divorce.md"))
+                                     )
+                            ),
                             mainPanel(
                               plotlyOutput("age_vs_divorce")
                             )
@@ -21,6 +26,11 @@ shinyUI(navbarPage("Info",
                                                           "35-44" = "all_3544", 
                                                           "45-54" = "all_4554"),
                                            selected = "all_2534")
+                            ),
+                            tabPanel("", 
+                                     fluidRow(
+                                       column(4, includeMarkdown("detail/explain_gender.md"))
+                                     )
                             ),
                             mainPanel(
                               plotlyOutput("male_vs_female")
