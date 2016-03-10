@@ -3,6 +3,7 @@ library(plotly)
 source("scripts/divorce_vs_Age.R")
 source("scripts/divorce-education.R")
 source("scripts/regional_married.R")
+source("scripts/male_vs_female.R")
 
 divorce_data <- read.csv("data/divorce.csv")
 shinyServer(function(input, output) {
@@ -15,5 +16,8 @@ shinyServer(function(input, output) {
   })
   output$married <- renderPlotly({
     married_state_map(input$interest_year)
+  })
+  output$male_vs_female <- renderPlotly({
+    male_female_graph(input$age_range)
   })
 })
