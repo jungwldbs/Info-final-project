@@ -26,6 +26,12 @@ shinyUI(navbarPage("Info",
                    
                    tabPanel("map",
                             titlePanel("never married regional data"),
+                            sidebarPanel(
+                              selectInput("interest_year", label = h3("Select year"),
+                                          choices = list("1960", "1970", "1980", "1990", 
+                                                         "2000", "2010", "2012"),
+                                          selected = "1960")
+                            ),
                             mainPanel(
                               plotlyOutput("never_married")
                             )

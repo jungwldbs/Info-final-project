@@ -13,7 +13,7 @@ shinyServer(function(input, output) {
     pie_chart(divorce_data, input$year, education)
   })
   output$never_married <- renderPlotly({
-    never_married_state_map()
+    never_married_state_map(input$interest_year)
   })
 })
 

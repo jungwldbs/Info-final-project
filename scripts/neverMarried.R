@@ -1,7 +1,7 @@
 library(dplyr)
 library(plotly)
 
-never_married_state_map <- function() {
+never_married_state_map <- function(interest_year) {
   both_sexes <- read.csv("data/both_sexes.csv", stringsAsFactors = FALSE)
   
   Marriage2534 <- select(both_sexes, year, ends_with("2534")) 
@@ -38,32 +38,35 @@ never_married_state_map <- function() {
   Marriage2534 <- mutate(Marriage2534, code = c(ne, ma, mwest, s, mt, pacific)) %>%
     as.data.frame()
   
-  data <- Marriage2534 %>% select(Region, `2012`, code)
+  data <- Marriage2534 %>% select(Region, contains(interest_year), code)
   
   # create sets of hovering texts on map                    
   data$hover <- with(data, paste(Region, '<br>', 
-                                 'Never married:', `2012`, '%'))
+                                 'Never married:', eval(parse(text = paste0('`', interest_year, '`')))
+                                 , '%'))
   
   
   # marker styling, set its size, opacity and shape
-  l <- list(color = toRGB("white"), width = 1)
+  l <- list(color = toRGB("gray75"), width = 0.5)
   
   # geo styling, get usa map and set colors of lands and its borderlines
   g <- list(
     scope = 'usa',
     projection = list(type = 'albers usa'),
     showlakes = TRUE,
-    lakecolor = toRGB('white'),
+    lakecolor = toRGB('gray75'),
     # subunitcolor = toRGB("gray50"),
     countrycolor = toRGB("gray90"),
     countrywidth = 0.5
     # subunitwidth = 0.8
   )
   
-  plot_ly(data, z = `2012`, locations = code, color = `2012`, 
-          colors = 'Purples', type = 'choropleth', locationmode = 'USA-states', 
-          marker = list(line = l), text = hover) %>%
-    layout(title = '2012 never married', geo = g) %>%
+  plot_ly(data, z = eval(parse(text = paste0('`', interest_year, '`'))), 
+          locations = code, color = eval(parse(text = paste0('`', interest_year, '`'))), 
+          colors = 'Blues', type = 'choropleth', locationmode = 'USA-states', 
+          marker = list(line = l), text = hover, colorbar = 
+          list(title = "% Never Married", ticksuffix = '%')) %>%
+    layout(title = paste0(interest_year, ' never married'), geo = g) %>%
     return()
   
 }
