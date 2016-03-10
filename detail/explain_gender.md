@@ -1,4 +1,5 @@
 ### Explaining the Graph
-The purpose of this graph is to show the differences and similarities between males and females rate of not getting married over the span of 1960-2012. The user can change the age range to see how different age groups have different percentages of not getting married.
-
+ - This graph compares the male and female rates of not getting married over the span of 1960-2012. 
+ - The graph shows that males tend to be married less often then females
+ - Also, it can be seen that the percent not married has been going up since 1960.
 
