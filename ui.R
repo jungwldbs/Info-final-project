@@ -32,6 +32,11 @@ shinyUI(navbarPage("Info",
                                                          "2000", "2010", "2012"),
                                           selected = "1960")
                             ),
+                            tabPanel("About this map", 
+                                     fluidRow(
+                                       column(4, includeMarkdown("detail/explain_map.md"))
+                                     )
+                            ),
                             mainPanel(
                               plotlyOutput("married")
                             )

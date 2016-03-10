@@ -25,6 +25,7 @@ married_data <- function(both_sexes) {
   Marriage2534 <- Marriage2534[rep(row.names(Marriage2534), 
                                    Marriage2534$numStates), 1:19]
   
+  # creates list of states per each region
   ne <- c('ME', 'VT', 'NH', 'MA', 'RI', 'CT')
   ma <- c('DC', 'DE', 'MD','NJ', 'NY', 'PA')
   mwest <- c('IL', 'IN', 'MI', 'OH', 'WI', 'IA',
@@ -33,6 +34,7 @@ married_data <- function(both_sexes) {
          'WV', 'AZ', 'NM', 'TX')
   mt <- c('CO', 'ID', 'MT', 'NV', 'UT', 'WY')
   pacific <- c('AK', 'CA', 'HI', 'OR', 'WA')
+  
   
   Marriage2534 <- mutate(Marriage2534, code = c(ne, ma, mwest, s, mt, pacific)) %>%
     as.data.frame() %>%
