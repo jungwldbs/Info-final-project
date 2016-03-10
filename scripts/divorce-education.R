@@ -1,18 +1,16 @@
-
-
-
 library(plotly)
 library(dplyr)
 
-pie_chart <- function(data, year_1, cat){
-
-  cat(data, year_1)
-  
+pie_chart <- function(data, year_1, cat, age){
+  cat(data, year_1, age)
 }
 
-education <- function(data, year_1){
-  education <- data %>% select(year, HS_3544, SC_3544, 
-                               BAp_3544, BAo_3544, GD_3544) %>% filter(year == year_1)
+education <- function(data, year_1, age){
+  education <- data %>% select(year, eval(parse(text = paste0("HS_", age))), 
+                                     eval(parse(text = paste0("SC_", age))),
+                                     eval(parse(text = paste0("BAp_", age))), 
+                                     eval(parse(text = paste0("BAo_", age))), 
+                                     eval(parse(text = paste0("GD_", age)))) %>% filter(year == year_1)
   
   percentages <- as.numeric(education[1,])[2:6]
   
@@ -21,6 +19,20 @@ education <- function(data, year_1){
   
   plot_ly(ds, labels = labels, values = values, type = "pie") %>% 
     layout(title = paste("Divorces and Education in", year_1))
+}
+
+wealth <- function(data, year_1, age){
+  wealth <- data %>% select(year, eval(parse(text = paste0("poor_", age))), 
+                                  eval(parse(text = paste0("mid_", age))), 
+                                  eval(parse(text = paste0("rich_", age)))) %>% filter(year == year_1)
+  
+  percentages <- as.numeric(wealth[1,])[2:4]
+  
+  ds <- data.frame(labels = c("Poor", "Middle", "Rich"),
+                   values = percentages)
+  
+  plot_ly(ds, labels = labels, values = values, type = "pie") %>% 
+    layout(title = paste("Divorces and Wealth in", year_1))
 }
 
 

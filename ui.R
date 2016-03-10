@@ -36,15 +36,23 @@ shinyUI(navbarPage("Menu",
                               plotlyOutput("married")
                             )
                    ),
+
                    
                    tabPanel("Divorce by Factors", 
                             titlePanel("Divorce by Factors"),
                             sidebarPanel(
                               sliderInput("year", "Year", min = 2000, max = 2012, 
-                                          value = 1, sep = "")
+                                          value = 1, sep = ""),
+                              radioButtons("cat", label = h3("Category"),
+                                           choices = list("Education" = 'education', "Wealth" = 'wealth'), 
+                                           selected = 'wealth'),
+                              radioButtons("age_group", label = h3("Age Group"),
+                                           choices = list("35-44 years old" = "3544", "45-54 years old" = "4554"), 
+                                           selected = '3544')
+                              
                             ),
                             mainPanel(
-                              plotlyOutput("education")
+                              plotlyOutput("divorce")
                             )
                    ),
                    
@@ -62,6 +70,4 @@ shinyUI(navbarPage("Menu",
                               plotlyOutput("age_vs_divorce")
                             )
                    )
-
-                   
 ))

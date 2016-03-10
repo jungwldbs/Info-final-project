@@ -10,8 +10,9 @@ shinyServer(function(input, output) {
   output$age_vs_divorce <- renderPlotly({
     divorce_vs_age_graph(input$age)
   })
-  output$education <- renderPlotly({
-    pie_chart(divorce_data, input$year, education)
+  output$divorce <- renderPlotly({
+    cat <- get(input$cat)
+    pie_chart(divorce_data, input$year, cat, input$age_group)
   })
   output$married <- renderPlotly({
     married_state_map(input$interest_year)
