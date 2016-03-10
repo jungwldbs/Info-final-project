@@ -1,7 +1,10 @@
 library(shiny)
 library(plotly)
+# install.packages("shinythemes")
+library(shinythemes)
 
 shinyUI(navbarPage("Menu",
+                   theme = shinytheme("Flatly"),
                    tabPanel("Not Married by Gender",
                             titlePanel("Not Married by Gender"),
                             sidebarPanel(
