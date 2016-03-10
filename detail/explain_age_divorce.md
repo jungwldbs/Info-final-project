@@ -1,3 +1,4 @@
 ### Explaining the Graph
-The purpose of this graph is to show the change in divorce rates over the span of 1960-2012 by age range. The user can change the age range to see how different age groups changes the frequency of divorces.
-
+ - This graph was created to see how divorce rates have changed over time.
+ - It can be seen that there has been an increase in divorce rates since 1960 in both age groups.
+ - Also, the graph shows that the 35-44 age group has a lower divorce rate than the 45-54 age group.

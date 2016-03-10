@@ -20,6 +20,7 @@ shinyUI(navbarPage("Menu",
                               plotlyOutput("male_vs_female")
                             )
                    ),
+                   
                    tabPanel("Marriage Rate by Region",
                             titlePanel("Percentage of people married regional data"),
                             sidebarPanel(
@@ -36,22 +37,8 @@ shinyUI(navbarPage("Menu",
                             )
                    ),
                    
-                   tabPanel("Age vs. Divorce",
-                            titlePanel("Age vs Divorce"),
-                            sidebarPanel(
-                              radioButtons("age", label = h4("Choose an Age Group"),
-                                           choices = list("35-44" = "all_3544", "45-54" = "all_4554"),
-                                           selected = "all_3544")
-                            ),
-                            mainPanel(
-                              plotlyOutput("age_vs_divorce")
-                            )
-                   ),
-                   
-                   
-                   
-                   tabPanel("Divorce vs Education", 
-                            titlePanel("Divorce vs Education"),
+                   tabPanel("Divorce by Factors", 
+                            titlePanel("Divorce by Factors"),
                             sidebarPanel(
                               sliderInput("year", "Year", min = 2000, max = 2012, 
                                           value = 1, sep = "")
@@ -59,6 +46,22 @@ shinyUI(navbarPage("Menu",
                             mainPanel(
                               plotlyOutput("education")
                             )
+                   ),
+                   
+                   tabPanel("Age vs. Divorce",
+                            titlePanel("Age vs Divorce"),
+                            sidebarPanel(
+                              radioButtons("age", label = h4("Choose an Age Group"),
+                                           choices = list("35-44" = "all_3544", "45-54" = "all_4554"),
+                                           selected = "all_3544")
+                            ),
+                            fluidRow(
+                              column(4, includeMarkdown("detail/explain_age_divorce.md"))
+                            ),
+                            mainPanel(
+                              plotlyOutput("age_vs_divorce")
+                            )
                    )
+
                    
 ))
