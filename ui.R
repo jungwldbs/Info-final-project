@@ -8,7 +8,7 @@ require(markdown)
 # Shiny UI
 shinyUI(navbarPage(
   "Menu",
-  theme = shinytheme("Flatly"),
+  theme = shinytheme("flatly"),
   
   # Tabs for seperate information
   tabPanel("General",
