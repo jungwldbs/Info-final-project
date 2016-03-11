@@ -1,4 +1,4 @@
-# Info498F Final Progect
+# Info498F Final Project
 Michael Kang, Jason Xu, Ji Yoon Jung
 ***
 

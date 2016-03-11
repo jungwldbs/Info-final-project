@@ -4,6 +4,7 @@ source("scripts/divorce_vs_Age.R")
 source("scripts/divorce-education.R")
 source("scripts/regional_married.R")
 source("scripts/male_vs_female.R")
+source("scripts/ethnicity_graph.R")
 
 divorce_data <- read.csv("data/divorce.csv")
 shinyServer(function(input, output) {
@@ -27,5 +28,10 @@ shinyServer(function(input, output) {
   # Allows user to find male and female marriage rate based on age group
   output$male_vs_female <- renderPlotly({
     male_female_graph(input$age_range)
+  })
+  
+  # # Allows user to find percent not married by age group and ethnicity
+  output$ethnicity_plot <- renderPlotly({
+    ethnicity_graph(input$ethnicity, input$age_choice)
   })
 })
