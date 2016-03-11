@@ -124,8 +124,8 @@ shinyUI(navbarPage(
             "age_group", label = h3("Age Group"),
             choices = list("35-44 years old" = "3544", "45-54 years old" = "4554"),
             selected = '3544'
-          )
-          
+          ),
+          includeMarkdown("detail/explain_divorce.md")
         ),
         
         # Render divorce rate pie chart by factors
