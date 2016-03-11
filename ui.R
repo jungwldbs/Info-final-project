@@ -6,8 +6,13 @@ library(shinythemes)
 # Shiny UI
 shinyUI(navbarPage("Menu",
                    theme = shinytheme("Flatly"),
-
                    # Tabs for seperate graphs
+                   tabPanel("General",
+                            titlePanel("General Information"),
+                            mainPanel(
+                              # includeMarkdown(" ")
+                            )
+                   ),
                    tabPanel("Not Married by Gender",
                             
                             # Page title
