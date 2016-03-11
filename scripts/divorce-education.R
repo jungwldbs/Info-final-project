@@ -34,7 +34,7 @@ wealth <- function(data, year_1, age){
                                   eval(parse(text = paste0("mid_", age))), 
                                   eval(parse(text = paste0("rich_", age)))) %>% filter(year == year_1)
   
-  #create divorce rates vector for divorce rates
+  #create divorce rates vector for divorce rates 
   percentages <- as.numeric(wealth[1,])[2:4]
   
   #set percentages and value to pie chart
