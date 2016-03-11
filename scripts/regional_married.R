@@ -41,6 +41,7 @@ married_state_map <- function(interest_year) {
           colors = 'Blues', type = 'choropleth', locationmode = 'USA-states', 
           marker = list(line = l), text = hover, colorbar = 
           list(title = "% Married", ticksuffix = '%')) %>%
-    layout(title = paste0(interest_year, ' percentage of married population'), geo = g) %>%
+    layout(title = paste0(interest_year, ' percentage of married population', '<br>',
+                          '(hover for more detail)' ), geo = g) %>%
     return()
 }
