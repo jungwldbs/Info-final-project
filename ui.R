@@ -10,7 +10,6 @@ shinyUI(navbarPage(
   
   # Tabs for seperate information
   tabPanel("General",
-           titlePanel("General Information"),
            mainPanel(
              includeMarkdown("README.md")
            )
@@ -74,7 +73,7 @@ shinyUI(navbarPage(
                titlePanel("Marriage Rate by Ethnicity and Age"),
                
                # Shiny widget, controls age and ethnicity
-               # Includes map explanation
+               # Includes plot explanation
                sidebarPanel(
                  radioButtons("age_choice", label = h4("Choose an Age Group"),
                               choices = list("25-34" = "2534",
@@ -90,7 +89,7 @@ shinyUI(navbarPage(
                ),
       
                
-               # Render marriage rate regional map
+               # Render marriage rate based on ethnicity plot
                mainPanel(
                  plotlyOutput("ethnicity_plot")
                )
