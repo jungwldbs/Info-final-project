@@ -2,6 +2,8 @@ library(shiny)
 library(plotly)
 # install.packages("shinythemes")
 library(shinythemes)
+# Requires markdown
+require(markdown)
 
 # Shiny UI
 shinyUI(navbarPage(
