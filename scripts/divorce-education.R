@@ -19,7 +19,7 @@ education <- function(data, year_1, age){
   percentages <- as.numeric(education[1,])[2:6]
   
   #set percentages and value to pie chart
-  ds <- data.frame(labels = c("High School", "Some College", "Bachelors or more", "Bachelors, no Grad", "Graduate"),
+  ds <- data.frame(labels = c("High School or less", "Some College", "Bachelors or more", "Bachelors, no Grad", "Graduate"),
                    values = percentages)
   
   #create pie chart
