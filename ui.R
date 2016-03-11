@@ -86,7 +86,7 @@ shinyUI(navbarPage(
                                              "Black" = "Black_", 
                                              "Hispanic" = "Hisp_"),
                               selected = "White_"),
-               includeMarkdown("detail/explain_map.md")
+               includeMarkdown("detail/explain_ethnicity.md")
                ),
       
                
